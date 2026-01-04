@@ -2,10 +2,6 @@
 
 ![a waybar setup](../pictures/waybar-SimpleMonochrome.png)
 
-## Waybar
-
-Probbaly my most used and most ocmplex custom config is my waybar config, i have serveral themes but currently I will only be sharing one since the others are not perfected yet
-
 ### Depencies
 
 - waybar
