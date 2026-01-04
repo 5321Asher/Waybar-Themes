@@ -2,7 +2,7 @@
 
 # Get weather data from wttr.in
 # You can change the location by replacing the city name or using your location code
-LOCATION="Vaughan"  # Change this to your location
+LOCATION="PUT YOUR LOCATION HERE"  # Change this to your location
 
 # Fetch weather data
 weather_data=$(curl -s "wttr.in/${LOCATION}?format=j1")
