@@ -2,10 +2,6 @@
 
 ![a waybar setup](../pictures/waybar-SimpleMonochrome.png)
 
-# Installation
-
-for a lot of these config files you simply have to place them in the right spot. for the more complex configurations that include scripts and the like instructions will be provided
-
 ## Waybar
 
 Probbaly my most used and most ocmplex custom config is my waybar config, i have serveral themes but currently I will only be sharing one since the others are not perfected yet
