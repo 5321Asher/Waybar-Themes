@@ -1,6 +1,6 @@
-# welcome to 5321Asher's dotfiles. 
+# This is Simple Monochrome
 
-in here I included a bunch of my configs, scripts and css files that i use every day on fedora 43 and hyprland.
+![a waybar setup](../pictures/waybar-SimpleMonochrome.png)
 
 # Installation
 
