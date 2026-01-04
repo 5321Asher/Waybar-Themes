@@ -22,7 +22,7 @@ Probbaly my most used and most ocmplex custom config is my waybar config, i have
 - wofi
 - curl
 - dunst (only if you want tailscale module)
-- Note: thanks to @federicovolponi for his tailscale script, this config uses it.
+- Note: thanks to [@federicovolponi] for his tailscale script, this config uses it.
 
 ### Installation
 
@@ -109,7 +109,7 @@ displays the current network you are connected to and strength as a percentage. 
 
 #### Tailscale
 
-tailscale module by @federicovolponi. TS: on means you are connected to your tailnet, off means you are disconnected. hovering over the module will display the current status of all other devices on your tailnet, green means connected, red disconnected. right clicking opens a wofi menu to select a exit node. left clicking toggles between on and off. 
+tailscale module by [@federicovolponi]. TS: on means you are connected to your tailnet, off means you are disconnected. hovering over the module will display the current status of all other devices on your tailnet, green means connected, red disconnected. right clicking opens a wofi menu to select a exit node. left clicking toggles between on and off. 
 
 #### Bluetooth
 
