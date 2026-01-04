@@ -1,0 +1,218 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 6,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": [
+        "custom/power",
+        "clock",
+        "hyprland/workspaces",
+        "hyprland/window",
+        "custom/seperator",
+        "tray",
+        "custom/seperator",
+        "custom/picker"
+    ],
+
+    "modules-center": [
+        "custom/cava"
+    ],
+
+    "modules-right": [
+        "mpris",
+        "pulseaudio",
+        "custom/weather",
+        "cpu",
+        "memory",
+        "network",
+        "custom/tailscale",
+        "bluetooth",
+        "backlight",
+        "battery",
+
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "all-outputs": false,
+        "persistent-workspaces": {
+            "*": 3
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 30,
+        "separate-outputs": false,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "Firefox",
+            "(.*) - Mozilla Firefox": "Firefox",
+            "(.*) — Firefox": "Firefox",
+            "(.*) - Firefox": "Firefox",
+            "Mozilla Firefox": "Firefox",
+            "(.*) - Chromium": "Chromium",
+            "(.*) - Google Chrome": "Chrome",
+            "(.*) - Brave": "Brave",
+            "(.*) - Visual Studio Code": "VSCode",
+            "(.*) - Code": "VSCode",
+            "code": "VSCode",
+            "": "Desktop"
+        }
+    },
+
+
+    "clock": {
+        "format": "{:%a %d %b  %I:%M %p}",
+        "format-alt": "{:%A, %B %d, %Y  %I:%M:%S %p}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><big>{calendar}</big></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#89b4fa'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#94e2d5'><b>W{}</b></span>",
+                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/waybar/scripts/powermenu.sh",
+        "tooltip": false
+    },
+
+    "custom/seperator": {
+        "format": "|",
+        "tooltip": false,
+    },
+
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "format": "{}",
+        "restart-interval": 1,
+        "on-click": "kitty -e cava"
+    },
+
+    "custom/picker": {
+        "format": "Color",
+        "on-click": "~/.config/waybar/scripts/color-picker.sh pick",
+        "on-click-middle": "~/.config/waybar/scripts/color-copy.sh",
+        "on-click-right": "~/.config/waybar/scripts/color-picker.sh clear",
+        "tooltip": true,
+        "return-type": "json"
+    },
+
+    "mpris": {
+        "format": "{title} - {artist}",
+        "format-paused": "{title} - {artist}",
+        "max-length": 40,
+    },
+
+    "pulseaudio": {
+        "format": "Vol: {volume}%",
+        "format-muted": "muted",
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip-format": "{desc}, {volume}%"
+    },
+
+    "bluetooth": {
+        "format": "ᛒ {status}",
+        "format-connected": "{device_alias}",
+        "format-connected-battery": "{device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+
+    "custom/tailscale" : {
+        "exec": "~/.config/waybar/scripts/waybar-tailscale/waybar-tailscale.sh --status",
+        "on-click": "exec ~/.config/waybar/scripts/waybar-tailscale/waybar-tailscale.sh --toggle",
+        "on-click-right": "exec ~/.config/waybar/scripts/waybar-tailscale/waybar-tailscale.sh --select-exit-node",
+        "exec-on-event": true,
+        "format": "TS: {icon}",
+        "format-icons": {
+            "connected": "on",
+            "stopped": "off"
+        },
+        "tooltip": true,
+        "return-type": "json",
+        "interval": 3,
+    },
+
+
+    "network": {
+        "format-wifi": "⇄ {signalStrength}%",
+        "format-ethernet": "⇄ wired",
+        "format-disconnected": "⇄ disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "on-click": "nm-connection-editor",
+        "interval": 2
+    },
+
+    "cpu": {
+        "format": "⬢ {usage}%",
+        "interval": 2,
+        "tooltip": true,
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "format": "RAM: {percentage}%",
+        "interval": 2,
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+        "on-click": "kitty -e btop"
+    },
+
+    "custom/weather": {
+        "format": "❄ {}",
+        "on-click": "firefox https://www.theweathernetwork.com/en/city/ca/ontario/toronto/current",
+        "interval": 1800,
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "⚡ {capacity}%",
+        "format-charging": "charging {capacity}%",
+        "format-plugged": "plugged {capacity}%",
+        "tooltip-format": "{timeTo}, {capacity}%"
+    },
+
+    "backlight": {
+        "format": "◌ {percent}%",
+        "scroll-step": 5,
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    }
+}

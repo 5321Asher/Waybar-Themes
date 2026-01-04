@@ -1,0 +1,154 @@
+* {
+font-family: "JetBrainsMono Nerd Font", monospace;
+font-size: 13px;
+font-weight: 500;
+min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, .5);
+    border-radius: 12px;
+    color: #cdd6f4;
+    transition: background-color 0.3s;
+}
+
+/* All modules - no individual backgrounds */
+#clock,
+#workspaces,
+#window,
+#custom-power,
+#custom-cava,
+#mpris,
+#pulseaudio,
+#custom-weather,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#backlight,
+#battery,
+#tray {
+padding: 0 4px;
+margin: 0 4px;
+background-color: transparent;
+color: #cdd6f4;
+}
+
+#clock {
+font-weight: 600;
+}
+
+#workspaces button {
+padding: 0 10px;
+background-color: transparent;
+color: #6c7086;
+border-radius: 6px;
+transition: all 0.2s;
+}
+
+#workspaces button.active {
+color: #cdd6f4;
+background-color: rgba(205, 214, 244, 0.15);
+}
+
+#workspaces button:hover {
+background-color: rgba(205, 214, 244, 0.1);
+color: #cdd6f4;
+}
+
+#custom-power {
+font-size: 16px;
+padding: 0 14px;
+}
+
+#custom-power:hover {
+background-color: rgba(205, 214, 244, 0.1);
+border-radius: 6px;
+}
+
+#custom-cava {
+font-family: monospace;
+}
+
+/* Player states */
+#mpris.paused {
+opacity: 0.5;
+}
+
+#mpris.playing {
+opacity: 1;
+}
+
+/* State variations - subtle opacity changes */
+#pulseaudio.muted,
+#network.disconnected,
+#bluetooth.off {
+opacity: 0.5;
+}
+
+#battery.warning {
+color: #f9e2af;
+}
+
+#battery.critical {
+color: #f38ba8;
+animation: blink 1s linear infinite;
+}
+
+#battery.charging {
+opacity: 0.8;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+#tray {
+background-color: transparent;
+}
+
+#tray > .passive {
+opacity: 0.6;
+}
+
+#tray > .needs-attention {
+animation: blink 1s linear infinite;
+}
+
+/* Tooltips */
+tooltip {
+    background-color: rgba(30, 30, 46, 0.95);
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+#custom-picker {
+padding: 0 10px;
+margin: 0 5px;
+border-radius: 8px;
+}
+
+#custom-picker.active {
+background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+animation: gradient 3s ease infinite;
+}
+
+#pulseaudio {
+padding: 0 4px;
+margin: 0 4px;
+background-color: transparent;
+color: #cdd6f4;
+min-height: 0;
+}
+
+#custom-seperator {
+    padding: 0;
+    margin: 0 -4px;
+}
