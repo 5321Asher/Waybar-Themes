@@ -3,4 +3,4 @@ Hey these are some waybar themes of mine, they include the config.jsonc, style.c
 
 ## Theme readmes and paths
 
-simpleMonochrome.md
+[Simple Monochrome](./Waybar-Themes/simpleMonochrome/simpleMonochrome.md)
